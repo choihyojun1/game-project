@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf2bd7vnb1owh"]
+
+[ext_resource type="Texture2D" uid="uid://dtr0n7xic6srp" path="res://sprites/food1/05.png" id="1_8iho2"]
+[ext_resource type="Script" uid="uid://dmjhivgctilr2" path="res://frying_pan.gd" id="1_j71ua"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j71ua"]
+
+[node name="FryingPan" type="Area2D"]
+script = ExtResource("1_j71ua")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8iho2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j71ua")
+
+[node name="CookTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CookTimer" to="." method="_on_cook_timer_timeout"]

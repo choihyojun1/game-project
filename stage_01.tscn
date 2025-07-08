@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dap5b7fu8lr2k"]
+[gd_scene load_steps=7 format=3 uid="uid://dap5b7fu8lr2k"]
 
 [ext_resource type="PackedScene" uid="uid://cahsb5jncm63f" path="res://player.tscn" id="1_smxaa"]
 [ext_resource type="PackedScene" uid="uid://cgxe2bjumk3uh" path="res://ingredient.tscn" id="2_gp3hl"]
 [ext_resource type="Texture2D" uid="uid://kh8jmf4ythhf" path="res://sprites/world_tileset.png" id="3_b62sb"]
+[ext_resource type="PackedScene" uid="uid://cf2bd7vnb1owh" path="res://frying_pan.tscn" id="4_tbtit"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b62sb"]
 texture = ExtResource("3_b62sb")
@@ -145,12 +146,17 @@ position = Vector2(292, 240)
 
 [node name="Ingredient" parent="." instance=ExtResource("2_gp3hl")]
 position = Vector2(257, 304)
+type = "fish"
 
 [node name="Ingredient2" parent="." instance=ExtResource("2_gp3hl")]
 position = Vector2(423, 275)
+type = "meat"
 
 [node name="Ingredient3" parent="." instance=ExtResource("2_gp3hl")]
 position = Vector2(252, 169)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_tbtit")
+
+[node name="FryingPan" parent="." instance=ExtResource("4_tbtit")]
+position = Vector2(375, 335)

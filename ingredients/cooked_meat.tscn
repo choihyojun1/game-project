@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddahnkqnw6nbr"]
+
+[ext_resource type="PackedScene" uid="uid://cgxe2bjumk3uh" path="res://ingredient.tscn" id="1_frhd6"]
+[ext_resource type="Texture2D" uid="uid://r2n630rvjbb4" path="res://sprites/food1/06.png" id="2_oyqf4"]
+
+[node name="Cooked_Meat" instance=ExtResource("1_frhd6")]
+type = "cooked_meat"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_oyqf4")
