@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b08kaus24iabj"
-path="res://.godot/imported/Chicken_Sprite_Sheet.png-ee9df031630fa7f321aa137a017a9763.ctex"
+uid="uid://d38d3npo4df1a"
+path="res://.godot/imported/kitchen_v1.png-94f3127944a186f6b395087692d917d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Chicken_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Chicken_Sprite_Sheet.png-ee9df031630fa7f321aa137a017a9763.ctex"]
+source_file="res://sprites/food1/kitchen_v1.png"
+dest_files=["res://.godot/imported/kitchen_v1.png-94f3127944a186f6b395087692d917d1.ctex"]
 
 [params]
 
