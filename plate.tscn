@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3l0aj8wb36j1"]
+[gd_scene load_steps=3 format=3 uid="uid://bd0eodqebma0i"]
 
-[ext_resource type="Texture2D" uid="uid://bc8gf5t3vn82o" path="res://sprites/kitchen/plate01a.png" id="1_wltir"]
+[ext_resource type="Texture2D" uid="uid://bc8gf5t3vn82o" path="res://sprites/kitchen/plate01a.png" id="1_s5yhh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jiowd"]
 radius = 28.0
@@ -9,7 +9,7 @@ radius = 28.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_wltir")
+texture = ExtResource("1_s5yhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

@@ -4,9 +4,12 @@ var cooking_food: Node2D
 var cookable_food = ["meat"]
 
 func _on_body_entered(body: Node2D) -> void:
+	if cooking_food:
+		return
 	if body.is_in_group("food") and body.type in cookable_food:
 		cooking_food = body
 		body.global_position = global_position
+		body.interactable = false
 		$CookTimer.start()
 
 
