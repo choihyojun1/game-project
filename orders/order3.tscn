@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://5da1d6g1rohj"]
+[gd_scene load_steps=6 format=3 uid="uid://bff1j4ilvshi5"]
 
-[ext_resource type="Texture2D" uid="uid://bai62ryy0esfv" path="res://sprites/order.png" id="1_4gq47"]
-[ext_resource type="Texture2D" uid="uid://cxjqhmg5ilgfh" path="res://sprites/foods.png" id="2_jkq0x"]
-[ext_resource type="Texture2D" uid="uid://dfetewccmydn0" path="res://sprites/food1/01_dish.png" id="3_nl8r5"]
+[ext_resource type="Texture2D" uid="uid://bai62ryy0esfv" path="res://sprites/order.png" id="1_6vgn2"]
+[ext_resource type="Texture2D" uid="uid://cxjqhmg5ilgfh" path="res://sprites/foods.png" id="2_ghp04"]
+[ext_resource type="Texture2D" uid="uid://dfetewccmydn0" path="res://sprites/food1/01_dish.png" id="3_m8ao8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4gq47"]
 font_color = Color(0.286729, 0.164076, 0.0729898, 1)
@@ -13,7 +13,7 @@ font_color = Color(0.205813, 0.341613, 0.442963, 1)
 [node name="Order" type="Node2D"]
 
 [node name="Order" type="Sprite2D" parent="."]
-texture = ExtResource("1_4gq47")
+texture = ExtResource("1_6vgn2")
 
 [node name="RecipeLabel" type="Label" parent="."]
 offset_left = -26.0
@@ -36,10 +36,11 @@ horizontal_alignment = 2
 
 [node name="Foods" type="Sprite2D" parent="."]
 position = Vector2(-25, 1)
-texture = ExtResource("2_jkq0x")
+texture = ExtResource("2_ghp04")
 hframes = 4
 vframes = 3
+frame = 2
 
 [node name="01Dish" type="Sprite2D" parent="."]
 position = Vector2(27, 0)
-texture = ExtResource("3_nl8r5")
+texture = ExtResource("3_m8ao8")

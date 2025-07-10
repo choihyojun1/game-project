@@ -8,6 +8,12 @@ func _physics_process(delta: float) -> void:
 	var dir = Input.get_vector("left", "right", "up", "down")
 	if dir != Vector2.ZERO:
 		look_dir = dir.normalized()  # 방향 저장
+		
+	if dir.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif dir.x > 0:
+		$AnimatedSprite2D.flip_h = false
+		
 	$InteractArea.position = look_dir * 12
 	$UseArea.position = look_dir * 12
 	velocity = dir * SPEED

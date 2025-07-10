@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://calxhhnfad5v1"]
+
+[ext_resource type="PackedScene" uid="uid://cgxe2bjumk3uh" path="res://ingredient.tscn" id="1_kd5hl"]
+[ext_resource type="Texture2D" uid="uid://cxjqhmg5ilgfh" path="res://sprites/foods.png" id="2_aw2x8"]
+
+[node name="Ingredient" instance=ExtResource("1_kd5hl")]
+type = "cooked_bacon"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_aw2x8")
+hframes = 4
+vframes = 3
+frame = 6

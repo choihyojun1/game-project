@@ -1,17 +1,19 @@
-[gd_scene load_steps=16 format=4 uid="uid://b45acrsmcb6l1"]
+[gd_scene load_steps=18 format=4 uid="uid://dap5b7fu8lr2k"]
 
+[ext_resource type="Script" uid="uid://da2tq08xmdreo" path="res://stage_01.gd" id="1_ilqvy"]
 [ext_resource type="PackedScene" uid="uid://cahsb5jncm63f" path="res://player.tscn" id="1_smxaa"]
 [ext_resource type="Texture2D" uid="uid://cjb254jt4gmn0" path="res://sprites/2D Soccer.png" id="4_hhgl7"]
 [ext_resource type="PackedScene" uid="uid://cf2bd7vnb1owh" path="res://frying_pan.tscn" id="4_tbtit"]
 [ext_resource type="Texture2D" uid="uid://52jlh1j1i400" path="res://sprites/food1/House-kitchen-Sheet2.png" id="5_hhgl7"]
 [ext_resource type="PackedScene" uid="uid://biyojagji3htn" path="res://food_box.tscn" id="6_xd6fe"]
 [ext_resource type="PackedScene" uid="uid://cgtvhbttafpq" path="res://ingredients/meat.tscn" id="7_di8me"]
-[ext_resource type="PackedScene" uid="uid://p4ad3u2ir0ur" path="res://submit_plate.tscn" id="8_6vnlh"]
-[ext_resource type="PackedScene" uid="uid://bd0eodqebma0i" path="res://plate.tscn" id="8_di8me"]
+[ext_resource type="PackedScene" uid="uid://co114litfqdyn" path="res://ingredients/bacon.tscn" id="8_6eha7"]
+[ext_resource type="PackedScene" path="res://submit_plate.tscn" id="8_6vnlh"]
+[ext_resource type="PackedScene" path="res://plate.tscn" id="8_di8me"]
+[ext_resource type="PackedScene" uid="uid://bqpjd0k6urf8w" path="res://ingredients/chicken.tscn" id="8_rug4a"]
 [ext_resource type="Script" path="res://food_box.gd" id="9_ynyxv"]
 [ext_resource type="Texture2D" uid="uid://dwrmnye5rbpcj" path="res://sprites/kitchen/plate01b.png" id="10_rug4a"]
-[ext_resource type="Texture2D" uid="uid://8moe4hgdc671" path="res://sprites/kitchen/recipe2.png" id="11_46sg8"]
-[ext_resource type="Texture2D" uid="uid://cde3jv0fjmevw" path="res://sprites/kitchen/recipe1.png" id="12_6eha7"]
+[ext_resource type="Script" uid="uid://sa05qhvcs2r7" path="res://order_display.gd" id="11_rug4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u0mc"]
 texture = ExtResource("4_hhgl7")
@@ -228,12 +230,19 @@ sources/0 = SubResource("TileSetAtlasSource_6u0mc")
 size = Vector2(45, 38)
 
 [node name="Stage_01" type="Node2D"]
+script = ExtResource("1_ilqvy")
 
 [node name="Player" parent="." instance=ExtResource("1_smxaa")]
-position = Vector2(292, 240)
+position = Vector2(238, 240)
 
 [node name="FryingPan" parent="." instance=ExtResource("4_tbtit")]
 position = Vector2(418, 222)
+
+[node name="FryingPan2" parent="." instance=ExtResource("4_tbtit")]
+position = Vector2(492, 222)
+
+[node name="FryingPan3" parent="." instance=ExtResource("4_tbtit")]
+position = Vector2(344, 222)
 
 [node name="Background" type="TileMapLayer" parent="."]
 z_index = -4
@@ -253,6 +262,14 @@ texture = ExtResource("5_hhgl7")
 position = Vector2(344, 62)
 food = ExtResource("7_di8me")
 
+[node name="FoodBox3" parent="." instance=ExtResource("6_xd6fe")]
+position = Vector2(282, 62)
+food = ExtResource("8_rug4a")
+
+[node name="FoodBox4" parent="." instance=ExtResource("6_xd6fe")]
+position = Vector2(220, 62)
+food = ExtResource("8_6eha7")
+
 [node name="SubmitPlate" parent="." instance=ExtResource("8_6vnlh")]
 position = Vector2(760, 227)
 
@@ -269,12 +286,40 @@ texture = ExtResource("10_rug4a")
 position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_8ypqs")
 
-[node name="Recipe2" type="Sprite2D" parent="."]
-position = Vector2(189, 58)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("11_46sg8")
+[node name="OrderDisplay" type="Node2D" parent="."]
+position = Vector2(83, 62)
+script = ExtResource("11_rug4a")
 
-[node name="Recipe1" type="Sprite2D" parent="."]
-position = Vector2(79, 58)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("12_6eha7")
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -129.0
+offset_top = 17.0
+offset_right = -22.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "000000"
+horizontal_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -188.0
+offset_top = -15.0
+offset_right = 212.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 1.0
+show_percentage = false
+
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
