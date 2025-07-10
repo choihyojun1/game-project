@@ -86,5 +86,6 @@ shape = SubResource("CircleShape2D_hqtel")
 
 [connection signal="timeout" from="InteractTimer" to="." method="_on_interact_timer_timeout"]
 [connection signal="timeout" from="UseTimer" to="." method="_on_use_timer_timeout"]
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_grab_or_interact"]
 [connection signal="body_entered" from="UseArea" to="." method="_interact"]

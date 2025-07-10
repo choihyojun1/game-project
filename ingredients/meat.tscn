@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgtvhbttafpq"]
+[gd_scene load_steps=3 format=3 uid="uid://cgtvhbttafpq"]
 
 [ext_resource type="PackedScene" uid="uid://cgxe2bjumk3uh" path="res://ingredient.tscn" id="1_stt4w"]
+[ext_resource type="PackedScene" uid="uid://ddahnkqnw6nbr" path="res://ingredients/cooked_meat.tscn" id="2_3vmiw"]
 
 [node name="Meat" instance=ExtResource("1_stt4w")]
 type = "meat"
+grill_result = ExtResource("2_3vmiw")

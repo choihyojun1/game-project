@@ -54,6 +54,8 @@ func pick_up_food(food: Node2D) -> void:
 
 func drop_food() -> void:
 	if held_food:
+		if held_food.is_in_group("plate"):
+			held_food.putdown()
 		held_food.get_parent().remove_child(held_food)
 		get_parent().add_child(held_food)
 		held_food.global_position = global_position + look_dir * 32
@@ -62,3 +64,11 @@ func drop_food() -> void:
 
 func _on_use_timer_timeout() -> void:
 	$UseArea.monitoring = false
+
+
+func _on_interact_area_area_entered(area: Area2D) -> void:
+	if held_food:
+		return
+	if area.is_in_group("plate"):
+		area.pickup()
+		pick_up_food(area)

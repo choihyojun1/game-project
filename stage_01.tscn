@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=4 uid="uid://dap5b7fu8lr2k"]
+[gd_scene load_steps=14 format=4 uid="uid://b45acrsmcb6l1"]
 
 [ext_resource type="PackedScene" uid="uid://cahsb5jncm63f" path="res://player.tscn" id="1_smxaa"]
-[ext_resource type="PackedScene" uid="uid://cgxe2bjumk3uh" path="res://ingredient.tscn" id="2_gp3hl"]
 [ext_resource type="Texture2D" uid="uid://cjb254jt4gmn0" path="res://sprites/2D Soccer.png" id="4_hhgl7"]
 [ext_resource type="PackedScene" uid="uid://cf2bd7vnb1owh" path="res://frying_pan.tscn" id="4_tbtit"]
 [ext_resource type="Texture2D" uid="uid://52jlh1j1i400" path="res://sprites/food1/House-kitchen-Sheet2.png" id="5_hhgl7"]
+[ext_resource type="PackedScene" path="res://food_box.tscn" id="6_xd6fe"]
+[ext_resource type="PackedScene" uid="uid://cgtvhbttafpq" path="res://ingredients/meat.tscn" id="7_di8me"]
+[ext_resource type="PackedScene" uid="uid://p4ad3u2ir0ur" path="res://submit_plate.tscn" id="8_6vnlh"]
+[ext_resource type="PackedScene" uid="uid://bd0eodqebma0i" path="res://plate.tscn" id="8_di8me"]
+[ext_resource type="Script" path="res://food_box.gd" id="9_ynyxv"]
+[ext_resource type="Texture2D" uid="uid://dwrmnye5rbpcj" path="res://sprites/kitchen/plate01b.png" id="10_rug4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u0mc"]
 texture = ExtResource("4_hhgl7")
@@ -217,21 +222,13 @@ texture = ExtResource("4_hhgl7")
 [sub_resource type="TileSet" id="TileSet_xd6fe"]
 sources/0 = SubResource("TileSetAtlasSource_6u0mc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ypqs"]
+size = Vector2(32, 32)
+
 [node name="Stage_01" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_smxaa")]
 position = Vector2(292, 240)
-
-[node name="Ingredient" parent="." instance=ExtResource("2_gp3hl")]
-position = Vector2(257, 304)
-type = "fish"
-
-[node name="Ingredient2" parent="." instance=ExtResource("2_gp3hl")]
-position = Vector2(423, 275)
-type = "meat"
-
-[node name="Ingredient3" parent="." instance=ExtResource("2_gp3hl")]
-position = Vector2(252, 169)
 
 [node name="FryingPan" parent="." instance=ExtResource("4_tbtit")]
 position = Vector2(375, 335)
@@ -272,3 +269,37 @@ vframes = 7
 [node name="House-kitchen-sheet6" type="Sprite2D" parent="."]
 position = Vector2(-494, 636)
 texture = ExtResource("5_hhgl7")
+
+[node name="FoodBox" parent="." instance=ExtResource("6_xd6fe")]
+position = Vector2(303, 375)
+food = ExtResource("7_di8me")
+
+[node name="Plate" parent="." instance=ExtResource("8_di8me")]
+position = Vector2(480, 316)
+
+[node name="Meat" parent="." instance=ExtResource("7_di8me")]
+position = Vector2(368, 258)
+
+[node name="Meat2" parent="." instance=ExtResource("7_di8me")]
+position = Vector2(333, 276)
+
+[node name="SubmitPlate" parent="." instance=ExtResource("8_6vnlh")]
+position = Vector2(748, 263)
+
+[node name="Plate2" parent="." instance=ExtResource("8_di8me")]
+position = Vector2(477, 265)
+
+[node name="Plate3" parent="." instance=ExtResource("8_di8me")]
+position = Vector2(482, 210)
+
+[node name="FoodBox2" type="StaticBody2D" parent="." groups=["interactable"]]
+position = Vector2(238, 376)
+script = ExtResource("9_ynyxv")
+food = ExtResource("8_di8me")
+
+[node name="Sprite2D" type="Sprite2D" parent="FoodBox2"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_rug4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodBox2"]
+shape = SubResource("RectangleShape2D_8ypqs")
