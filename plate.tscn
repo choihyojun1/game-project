@@ -4,17 +4,18 @@
 [ext_resource type="Script" uid="uid://dlpkds6df8bp" path="res://plate.gd" id="1_uw33f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jiowd"]
-radius = 28.0
+radius = 57.5543
 
 [node name="Plate" type="Area2D" groups=["plate"]]
 script = ExtResource("1_uw33f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_s5yhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(-1, 5)
+scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_jiowd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

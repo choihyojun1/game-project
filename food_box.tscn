@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://biyojagji3htn"]
+[gd_scene load_steps=4 format=3 uid="uid://cvkoexrho20nd"]
 
-[ext_resource type="Texture2D" uid="uid://csicbtfnursqe" path="res://icon.svg" id="1_8ypqs"]
 [ext_resource type="Script" path="res://food_box.gd" id="1_p4e2l"]
+[ext_resource type="Texture2D" uid="uid://52jlh1j1i400" path="res://sprites/food1/House-kitchen-Sheet2.png" id="2_p4e2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ypqs"]
-size = Vector2(32, 32)
+size = Vector2(51, 83)
 
 [node name="FoodBox" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource("1_p4e2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_8ypqs")
+position = Vector2(27, 21.25)
+scale = Vector2(2.0625, 2.29688)
+texture = ExtResource("2_p4e2l")
+hframes = 4
+vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17.5, 23.5)
 shape = SubResource("RectangleShape2D_8ypqs")

@@ -1,18 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://p4ad3u2ir0ur"]
 
 [ext_resource type="Script" uid="uid://cmahk60urj0ih" path="res://submit_plate.gd" id="1_s4r3t"]
-[ext_resource type="Texture2D" uid="uid://dfetewccmydn0" path="res://sprites/food1/01_dish.png" id="2_s4r3t"]
+[ext_resource type="Texture2D" uid="uid://c6mq1f51yq8e8" path="res://sprites/kitchen/pngtree-standing-goalkeeper-icon-logo-flat-png-image_5318908.png" id="2_s4r3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qbv8"]
-size = Vector2(48, 50)
+size = Vector2(29.5, 51.5)
 
 [node name="SubmitPlate" type="Area2D"]
 script = ExtResource("1_s4r3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18, 4)
+rotation = 1.5708
+scale = Vector2(0.4, 0.2)
 texture = ExtResource("2_s4r3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18.5, -1.5)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_3qbv8")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
